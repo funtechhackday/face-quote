@@ -15,8 +15,9 @@ class ImageProcessor
 
         $faceDetectorScriptPath = \Yii::$app->params['faceDetectorScriptPath'];
         $faceDetectorScriptFolder = str_replace('image_emotion_detector.py', '', $faceDetectorScriptPath);
+        $pythonPath = \Yii::$app->params['pythonPath'];
 
-        $command = "cd $faceDetectorScriptFolder; python $faceDetectorScriptPath $imagePath";
+        $command = "cd $faceDetectorScriptFolder; sudo $pythonPath $faceDetectorScriptPath $imagePath";
 
         $output = shell_exec($command);
 
