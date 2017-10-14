@@ -35,12 +35,10 @@ class ImageController extends Controller
                     'status' => 'success'
                 ];
 
-            } else {
-                return ['status' => $model->getFirstError('imageFile')];
             }
         }
 
         \Yii::$app->response->setStatusCode(400);
-        return ['status' => 'failed'];
+        return ['status' => $model->getFirstError('imageFile')];
     }
 }
