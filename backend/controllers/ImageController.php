@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Quote;
 use Yii;
 use app\models\UploadForm;
 use yii\rest\Controller;
@@ -18,7 +19,7 @@ class ImageController extends Controller
             if ($model->upload()) {
                 // file is uploaded successfully
                 return [
-                    'quote' => 'Suspendisse id cum volutpat praesent a a parturient justo dignissim sociosqu potenti.',
+                    'quote' => Quote::getRandom(),
                     'status' => 'success'
                 ];
             }
