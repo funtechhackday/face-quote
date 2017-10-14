@@ -34,6 +34,9 @@ class ImageController extends Controller
                     'quote' => Quote::getRandomByEmotion($emotionId),
                     'status' => 'success'
                 ];
+
+            } else {
+                return ['status' => $model->getFirstError('imageFile')];
             }
         }
 
