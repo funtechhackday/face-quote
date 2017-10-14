@@ -4,6 +4,7 @@ namespace app\models;
 
 use Sunra\PhpSimple\HtmlDomParser;
 use Yii;
+use yii\db\Exception;
 use yii\db\Expression;
 
 /**
@@ -123,6 +124,23 @@ class Quote extends \yii\db\ActiveRecord
         $emotionId = rand(1, 7);
 
         $mQuote = self::find()->where(['emotion_id' => $emotionId])->orderBy(new Expression('rand()'))->limit(1)->one();
+
+        return $mQuote ? $mQuote->text : null;
+    }
+
+    /**
+     * Returns random quote by emotion
+     *
+     * @param $emotionId
+     * @return mixed|null
+     * @throws Exception
+     */
+    public static function getRandomByEmotion($emotionId) {
+
+        $mEmotion = Emotion::findOne($emotionId);
+        if(!$mEmotion) throw new Exception("emotion $emotionId not found");
+
+        $mQuote = self::find()->where(['emotion_id' => $mEmotion->id])->orderBy(new Expression('rand()'))->limit(1)->one();
 
         return $mQuote ? $mQuote->text : null;
     }

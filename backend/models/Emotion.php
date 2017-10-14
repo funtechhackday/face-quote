@@ -14,6 +14,12 @@ use Yii;
  */
 class Emotion extends \yii\db\ActiveRecord
 {
+
+    /**
+     * Default emotion is neutral in case there is no face in photo
+     */
+    const DEFAULT_EMOTION_ID = 7;
+
     /**
      * @inheritdoc
      */

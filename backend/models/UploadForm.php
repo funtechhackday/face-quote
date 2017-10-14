@@ -19,11 +19,10 @@ class UploadForm extends Model
         ];
     }
 
-    public function upload()
+    public function upload($imageName)
     {
         if ($this->validate()) {
-            $imageName = time() . '_' . \Yii::$app->security->generateRandomString(6);
-            $this->imageFile->saveAs('uploads/' . $imageName . '.' . $this->imageFile->extension);
+            $this->imageFile->saveAs('uploads/' . $imageName);
             return true;
         } else {
             return false;
