@@ -2,3 +2,4 @@
 backend/config/db.php
 backend/config/params.php
 backend/config/console.php
+backend/web/uploads/*
