@@ -25,7 +25,7 @@ class ImageController extends Controller
 
                 // file is uploaded successfully
 
-                $imagePath = \Yii::getAlias('@webroot') . "/upload/$imageName";
+                $imagePath = \Yii::getAlias('@webroot') . "/uploads/$imageName";
 
                 $emotionId = ImageProcessor::getEmotionId($imagePath);
                 if(!$emotionId) $emotionId = Emotion::DEFAULT_EMOTION_ID;
