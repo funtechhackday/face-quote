@@ -32,6 +32,7 @@ class ImageController extends Controller
 
                 return [
                     'quote' => Quote::getRandomByEmotion($emotionId),
+                    'emotion' => Emotion::findOne($emotionId)->name,
                     'status' => 'success'
                 ];
 
