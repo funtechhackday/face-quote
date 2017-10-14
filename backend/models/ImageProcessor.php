@@ -13,9 +13,10 @@ class ImageProcessor
      */
     public static function getEmotionId($imagePath) {
 
-        $daceDetectorScriptPath = \Yii::$app->params['faceDetectorScriptPath'];
+        $faceDetectorScriptPath = \Yii::$app->params['faceDetectorScriptPath'];
+        $faceDetectorScriptFolder = str_replace('image_emotion_detector.py', '', $faceDetectorScriptPath);
 
-        $command = "python $daceDetectorScriptPath $imagePath";
+        $command = "cd $faceDetectorScriptFolder; python $faceDetectorScriptPath $imagePath";
 
         $output = shell_exec($command);
 
