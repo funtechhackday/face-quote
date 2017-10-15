@@ -1,0 +1,6 @@
+framework module Pods_FaceQuote {
+  umbrella header "Pods-FaceQuote-umbrella.h"
+
+  export *
+  module * { export * }
+}
